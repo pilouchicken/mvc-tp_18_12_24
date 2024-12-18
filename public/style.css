@@ -1,0 +1,105 @@
+/* Reset des marges et paddings par défaut */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa; /* Gris très clair */
+    color: #333; /* Gris foncé */
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+header {
+    background-color: #007bff; /* Bleu vif */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 1.8em;
+}
+
+main {
+    padding: 20px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul li {
+    background: #e9ecef; /* Gris clair */
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s;
+}
+
+ul li:hover {
+    background: #dee2e6; /* Légèrement plus foncé */
+}
+
+ul li.completed {
+    text-decoration: line-through;
+    color: #6c757d; /* Gris désactivé */
+}
+
+button {
+    padding: 8px 12px;
+    background: #28a745; /* Vert */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #218838; /* Vert plus foncé */
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+form input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+form button {
+    background: #007bff; /* Bleu vif */
+    color: #fff;
+}
+
+form button:hover {
+    background: #0056b3; /* Bleu plus foncé */
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #343a40; /* Gris foncé */
+    color: #ffffff;
+}

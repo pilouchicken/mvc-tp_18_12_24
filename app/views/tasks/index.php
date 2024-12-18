@@ -1,5 +1,6 @@
 <h1>Liste des tâches</h1>
 <a href="/create">Ajouter une tâche</a>
+<link rel="stylesheet" href="public/style.css">
 <table>
     <thead>
         <tr>
@@ -12,7 +13,7 @@
     <tbody>
         <?php foreach ($tasks as $task): ?>
             <tr>
-                <td><?= $task['id'] ?></td>
+                <td><?= $task['id'] ?></td> 
                 <td><?= $task['title'] ?></td>
                 <td><?= $task['is_completed'] ? 'Terminée' :
                         'En cours' ?></td>
@@ -32,3 +33,4 @@
         <?php endforeach; ?>
     </tbody>
 </table>
+
