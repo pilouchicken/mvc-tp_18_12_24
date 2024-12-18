@@ -18,16 +18,14 @@
                         'En cours' ?></td>
                 <td>
                     <?php if (!$task['is_completed']): ?>
-                        <form method="POST" action="/complet
-e/<?= $task['id'] ?>">
-                            <button type="submit">Marquer com
-                                me terminée</button>
+                        <form method="POST" action="/complete">
+                            <input type="hidden" name="id" value="<?=$task['id'] ?>">
+                            <button type="submit">Marquer comme terminée</button>
                         </form>
                     <?php endif; ?>
-                    <form method="POST" action="/delete/<?=
-                                                        $task['id'] ?>">
-                        <button type="submit">Supprimer</butt
-                                on>
+                    <form method="POST" action="/delete">
+                        <input type="hidden" name="id" value="<?=$task['id'] ?>">
+                        <button type="submit">Supprimer</button>
                     </form>
                 </td>
             </tr>
