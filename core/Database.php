@@ -1,29 +1,23 @@
 <?php
-
 class Database
 {
     private static $instance = null;
     private $pdo;
-
     private function __construct()
     {
-        try {
-            $this->pdo = new PDO('mysql:host=localhost;dbname=todo', 'root', '');
-            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
-            die("Erreur de connexion à la base de données : " . $e->getMessage());
-        }
+        $config = include __DIR__ . '/../config.php';
+        $dsn = "mysql:host={$config['db_host']};dbname={$config['db_name']}";
+        $this->pdo = new PDO($dsn, $config['db_user'], $config['db_pass']);
+        $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
-
     public static function getInstance()
     {
         if (self::$instance === null) {
-            self::$instance = new Database();
+            self::$instance = new self();
         }
         return self::$instance;
     }
-
-    public function getConnection()
+    public function getPdo()
     {
         return $this->pdo;
     }

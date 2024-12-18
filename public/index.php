@@ -1,15 +1,17 @@
 <?php
-// Démarre la session si besoin
-session_start();
-
-// Inclusion de la base de données et du contrôleur
 require_once __DIR__ . '/../core/Database.php';
+require_once __DIR__ . '/../core/Router.php';
+require_once __DIR__ . '/../app/models/Task.php';
 require_once __DIR__ . '/../app/controllers/TaskController.php';
-
-// Récupération de l'instance de la base de données
-$db = Database::getInstance();
-$pdo = $db->getConnection();
-
-// Appel du contrôleur
-$controller = new TaskController($pdo);
-$controller->index();
+$router = new Router();
+$router->add('/', [new TaskController, 'index']);
+$router->add('/create', [new TaskController, 'create']);
+$router->add('/complete', function () {
+    $id = $_POST['id'] ?? null;
+    (new TaskController)->markAsCompleted($id);
+});
+$router->add('/delete', function () {
+    $id = $_POST['id'] ?? null;
+    (new TaskController)->delete($id);
+});
+$router->dispatch();

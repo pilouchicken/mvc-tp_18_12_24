@@ -1,19 +1,32 @@
 <?php
-
-require_once __DIR__ . '/../models/Task.php';
-
 class TaskController
 {
-    private $taskModel;
-
-    public function __construct($pdo)
-    {
-        $this->taskModel = new Task($pdo);
-    }
-
     public function index()
     {
-        $tasks = $this->taskModel->getAllTasks();
+        $tasks = Task::all();
         include __DIR__ . '/../views/tasks/index.php';
+    }
+    public function create()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            Task::create($_POST['title']);
+            header('Location: /');
+            exit;
+        }
+        include __DIR__ . '/../views/tasks/create.php';
+    }
+
+    public function markAsCompleted($id)
+    {
+        Task::markAsCompleted($id);
+        header('Location: /');
+        exit;
+    }
+
+    public function delete($id)
+    {
+        Task::delete($id);
+        header('Location: /');
+        exit;
     }
 }
