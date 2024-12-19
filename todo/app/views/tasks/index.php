@@ -1,6 +1,8 @@
+<head>
+<link rel="stylesheet" href="/style.css">
+</head>
 <h1>Liste des tâches</h1>
 <a href="/create">Ajouter une tâche</a>
-<link rel="stylesheet" href="public/style.css">
 <table>
     <thead>
         <tr>
